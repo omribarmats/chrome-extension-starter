@@ -1,50 +1,52 @@
-# React + TypeScript + Vite
+# Chrome Extension Starter with Vite, React, TypeScript, and Tailwind CSS
+This project is a starter template for building modern Chrome extensions using Vite, React, TypeScript, and Tailwind CSS. It simplifies the setup so you can focus on building your extension's features.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div style="display: flex; justify-content: space-around">
+  <img src="https://github.com/user-attachments/assets/b2267b19-1618-4797-8e0e-a241697b92cf" alt="image 1" width="200"/>
+  <img src="https://github.com/user-attachments/assets/eb6304c9-afd7-4bfc-b9ce-8099531a66d9" alt="image 2" width="200"/>
+  <img src="https://github.com/user-attachments/assets/7808d29d-d1ca-4287-b82b-183ad7b6510a" alt="image 3" width="200"/>
+  <img src="https://github.com/user-attachments/assets/c2f328e2-f7d6-4e6d-a3ec-8e750625e0f8" alt="image 4" width="200"/>
+</div>
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Features
+- **Fast reloading** develop UI faster, view the popup and options page
+- **Vite** for fast bundling and development
+- **React** for building interactive UI components
+- **TypeScript** for type-safe JavaScript development
+- **Tailwind CSS** for easy and responsive styling
+- **Chrome Extension API** integrated for easy feature development
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Clone this repository:
 ```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+git clone https://github.com/omribarmats/chrome-extension-starter.git
 ```
+### Install dependencies:
+```
+npm install
+```
+### Start the development server:
+```
+npm run dev
+```
+### Build for production:
+```
+    npm run build
+```
+## Load the Extension
+
+1. Run the build command: `npm run build.`
+2. Go to `chrome://extensions/` in your Chrome browser.
+3. Enable `Developer mode`.
+4. Click `Load unpacked` and select the `dist` folder from the project.
+
+## Development
+- Hot-reload enabled for easier development.
+- Modify your code in the src folder.
+- Tailwind CSS is already configured and ready to use.
+
+## Contributing
+Feel free to fork the project and make improvements or submit bug reports or issues.
