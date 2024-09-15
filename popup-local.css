@@ -1,0 +1,15 @@
+.content {
+  max-width: 1200px;
+  display: flex;
+  margin: auto;
+  padding: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.content-text {
+  color: white;
+  font-size: large;
+  font-weight: 500;
+  padding: 30px 50px 0 0;
+}

@@ -1,0 +1,16 @@
+.content {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px;
+  justify-content: space-between;
+}
+
+.content-text {
+  max-width: 1200px;
+  margin: auto;
+  color: white;
+  font-size: large;
+  font-weight: 500;
+}

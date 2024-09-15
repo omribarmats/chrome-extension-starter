@@ -1,0 +1,50 @@
+body {
+  min-height: 100%;
+  width: 100vw;
+  background: linear-gradient(to bottom, #807fba, #34005d);
+}
+
+.navbar {
+  background-color: #807fba/80;
+  color: white;
+  font-size: x-large;
+  border-bottom: 1px gainsboro solid;
+  margin-bottom: 20px;
+}
+
+.inner-navbar {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  margin: auto;
+  padding: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: 700;
+  font-size: x-large;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.menu {
+  display: flex;
+  gap: 10px;
+}
+
+.menu > * {
+  border: 2px solid white;
+  font-size: x-large;
+  border-radius: 7px;
+  padding: 5px 10px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.menu > *:hover {
+  border: 2px solid #34005d;
+  background-color: white;
+  color: #34005d;
+}

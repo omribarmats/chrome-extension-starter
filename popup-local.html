@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/src/chrome-extension/public/32.png">
+    <title>Popup</title>
+    <link rel="stylesheet" href="/src/chrome-extension/global.css">
+    <link rel="stylesheet" href="/local.css">
+    <link rel="stylesheet" href="/popup-local.css">
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="inner-navbar">
+      <span class="title">Chrome Extension Starter</span>
+      <div class="menu">
+      <a href="/options-local.html">Options</a>
+      <a href="/popup-local.html">Popup</a>
+      </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content-text">
+    This is your chrome extension popup preview. To make changes go to src/chrome-extension/popup/index.tsx
+  </div> 
+    <div class="root" id="root">
+      <script type="module" src="/src/main.tsx"></script>
+    </div>
+    </div>
+  </body>
+</html>
