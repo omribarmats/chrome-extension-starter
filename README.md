@@ -16,7 +16,7 @@ This project is a starter template for building modern Chrome extensions using V
 - **React** for building interactive UI components
 - **TypeScript** for type-safe JavaScript development
 - **Tailwind CSS** for easy and responsive styling
-- **Chrome Extension API** integrated for easy feature development
+- **Chrome Extension API** for obvious reasons
 
 ## Installation
 
@@ -54,11 +54,38 @@ npm run dev
 
 ### How to change the popup? 
 - Go on `src/chrome-extension/popup/index.tsx`
-- Once changes are done run `nmp run build` and then visit your project on `chrome://extensions/` and click refresh `⟳`
+- Once changes are made open the terminal and run `nmp run build` then visit `chrome://extensions/` and click the refresh `⟳` button on your extension
 
 ### How to change the options page? 
 - Go on `src/chrome-extension/options/index.tsx`
-- Once changes are done run `nmp run build` and then visit your project on `chrome://extensions/` and click refresh `⟳`
+- Once changes are made open the terminal and run `nmp run build` then visit `chrome://extensions/` and click the refresh `⟳` button on your extension
+
+- ### How to add a background script? 
+- Create a `background.ts` file inside the `src` folder
+- Go on `vite.config.ts` and add this line `background: resolve(__dirname, "src/background.ts"),` under `build.rollupOptions.input`
+- For example 
+```
+ build: {
+    rollupOptions: {
+      input: {
+        popup: resolve(__dirname, "popup.html"),
+        options: resolve(__dirname, "options.html"),
+        background: resolve(__dirname, "src/background.ts"),
+      },
+      output: {
+        entryFileNames: "[name].js",
+      },
+    },
+  },
+```
+- Go on `manifest.json` and add this code:
+```
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+``` 
+- Open the terminal and run `nmp run build` then visit `chrome://extensions/` and click the refresh `⟳` button on your extension
 
 ## Contributing
 Feel free to fork the project and make improvements or submit bug reports or issues.
