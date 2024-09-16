@@ -22,7 +22,13 @@ This project is a starter template for building modern Chrome extensions using V
 
 ### Clone this repository:
 ```
-git clone https://github.com/omribarmats/chrome-extension-starter.git
+git clone https://github.com/omribarmats/chrome-extension-starter.git new-project
+```
+* Replace `new-project` with your project name
+
+### Open the new directory:
+```
+cd new-project
 ```
 ### Install dependencies:
 ```
@@ -31,10 +37,6 @@ npm install
 ### Start the development server:
 ```
 npm run dev
-```
-### Build for production:
-```
-    npm run build
 ```
 ## Load the Extension
 
