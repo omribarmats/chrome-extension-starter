@@ -16,7 +16,7 @@ This project is a starter template for building modern Chrome extensions using V
 - **React** for building interactive UI components
 - **TypeScript** for type-safe JavaScript development
 - **Tailwind CSS** for easy and responsive styling
-- **Chrome Extension API** for obvious reasons
+- **chrome-types** Chrome's API TS files for auto-completion 
 
 ## Installation
 
