@@ -8,7 +8,10 @@ This project is a starter template for building modern Chrome extensions using V
   <img src="https://github.com/user-attachments/assets/c2f328e2-f7d6-4e6d-a3ec-8e750625e0f8" alt="image 4" width="200"/>
 </div>
 
-[![YouTube](http://i.ytimg.com/vi/jwDErziR1nE/hqdefault.jpg)](https://www.youtube.com/watch?v=jwDErziR1nE)
+## View tutorial on YouTube
+ <a href="https://www.youtube.com/watch?v=jwDErziR1nE">
+    <img src="http://i.ytimg.com/vi/jwDErziR1nE/hqdefault.jpg" alt="YouTube video" width="200"/>
+  </a>
 
 ## Features
 - **Fast reloading** develop UI faster, view the popup and options page
