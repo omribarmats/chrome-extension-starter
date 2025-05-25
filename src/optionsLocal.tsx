@@ -7,6 +7,6 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <div className="bg-white w-full h-[1000px]">
       <Options />
-    </div>
+    </div> 
   </StrictMode>
 );
