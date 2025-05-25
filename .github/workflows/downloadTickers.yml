@@ -1,0 +1,98 @@
+name: Download Latest Stocks
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Every day at midnight UTC
+  workflow_dispatch:     # Manual trigger via GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install jq
+        run: sudo apt-get install jq -y
+
+      - name: Create directories
+        run: |
+          mkdir -p tickers/nasdaq
+          mkdir -p tickers/nyse
+          mkdir -p tickers/amex
+          mkdir -p tickers/etf
+          mkdir -p tickers/all
+
+      # NASDAQ
+      - name: Download NASDAQ tickers
+        run: |
+          curl -L -H "Accept: application/json" \
+            -H "Origin: https://www.nasdaq.com" \
+            -H "Referer: https://www.nasdaq.com/" \
+            -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" \
+            "https://api.nasdaq.com/api/screener/stocks?tableonly=true&limit=2000&offset=0&exchange=nasdaq&download=true" \
+            --http1.1 \
+            -o tickers/nasdaq/nasdaq.json
+
+          cat tickers/nasdaq/nasdaq.json | jq '[.data.rows[].symbol]' > tickers/nasdaq/tickers.json
+          cat tickers/nasdaq/tickers.json | jq -r '.[]' > tickers/nasdaq/tickers.txt
+
+      # NYSE
+      - name: Download NYSE tickers
+        run: |
+          curl -L -H "Accept: application/json" \
+            -H "Origin: https://www.nasdaq.com" \
+            -H "Referer: https://www.nasdaq.com/" \
+            -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" \
+            "https://api.nasdaq.com/api/screener/stocks?tableonly=true&limit=2000&offset=0&exchange=nyse&download=true" \
+            --http1.1 \
+            -o tickers/nyse/nyse.json
+
+          cat tickers/nyse/nyse.json | jq '[.data.rows[].symbol]' > tickers/nyse/tickers.json
+          cat tickers/nyse/tickers.json | jq -r '.[]' > tickers/nyse/tickers.txt
+
+      # AMEX
+      - name: Download AMEX tickers
+        run: |
+          curl -L -H "Accept: application/json" \
+            -H "Origin: https://www.nasdaq.com" \
+            -H "Referer: https://www.nasdaq.com/" \
+            -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" \
+            "https://api.nasdaq.com/api/screener/stocks?tableonly=true&limit=2000&offset=0&exchange=amex&download=true" \
+            --http1.1 \
+            -o tickers/amex/amex.json
+
+          cat tickers/amex/amex.json | jq '[.data.rows[].symbol]' > tickers/amex/tickers.json
+          cat tickers/amex/tickers.json | jq -r '.[]' > tickers/amex/tickers.txt
+
+      # ETFs
+      - name: Download Index Funds / ETFs
+        run: |
+          curl -L -H "Accept: application/json" \
+            -H "Origin: https://www.nasdaq.com" \
+            -H "Referer: https://www.nasdaq.com/" \
+            -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" \
+            "https://api.nasdaq.com/api/screener/etf?tableonly=true&limit=2000&offset=0&download=true" \
+            --http1.1 \
+            -o tickers/etf/etf.json
+
+          cat tickers/etf/etf.json | jq '[.data.rows[].symbol]' > tickers/etf/tickers.json
+          cat tickers/etf/tickers.json | jq -r '.[]' > tickers/etf/tickers.txt
+
+      # Combine all
+      - name: Combine all tickers
+        run: |
+          cat tickers/amex/tickers.txt tickers/nyse/tickers.txt tickers/nasdaq/tickers.txt tickers/etf/tickers.txt \
+            | sort -u > tickers/all/allTickers.txt
+
+      # Commit and push
+      - name: Commit and push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add tickers/
+          git commit -m "Update tickers list"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/AkhilGovan/MarketMood.git
