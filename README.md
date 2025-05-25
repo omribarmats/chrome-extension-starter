@@ -32,7 +32,6 @@ Traders and investors must dig through forums, Twitter feeds, and dashboards —
 
 ## Installation
 
-```
 ### Install dependencies:
 ```
 npm install
