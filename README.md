@@ -52,16 +52,16 @@ npm run dev
 - Hot-reload enabled for easier development.
 - Modify your code in the src folder.
 - Tailwind CSS is already configured and ready to use.
-- Run `nmp run build` to implement changes to `dist` folder
+- Run `npm run build` to implement changes to `dist` folder
 - Go on `chrome://extensions/` and click refresh `⟳`
 
 ### How to change the popup? 
 - Go on `src/chrome-extension/popup/index.tsx`
-- Once changes are made open the terminal and run `nmp run build` then visit `chrome://extensions/` and click the refresh `⟳` button on your extension
+- Once changes are made open the terminal and run `npm run build` then visit `chrome://extensions/` and click the refresh `⟳` button on your extension
 
 ### How to change the options page? 
 - Go on `src/chrome-extension/options/index.tsx`
-- Once changes are made open the terminal and run `nmp run build` then visit `chrome://extensions/` and click the refresh `⟳` button on your extension
+- Once changes are made open the terminal and run `npm run build` then visit `chrome://extensions/` and click the refresh `⟳` button on your extension
 
 - ### How to add a background script? 
 - Create a `background.ts` file inside the `src` folder
@@ -88,7 +88,7 @@ npm run dev
     "type": "module"
   }
 ``` 
-- Open the terminal and run `nmp run build` then visit `chrome://extensions/` and click the refresh `⟳` button on your extension
+- Open the terminal and run `npm run build` then visit `chrome://extensions/` and click the refresh `⟳` button on your extension
 
 ## Contributing
 Feel free to fork the project and make improvements or submit bug reports or issues.
